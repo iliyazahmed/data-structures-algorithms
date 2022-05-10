@@ -47,5 +47,15 @@ public class WorkingWithMap {
         linkedHashMapMethod();
         System.out.println("TreeMap Top it Companies and Ranking");
         treeMapMethod();
+        System.out.println("=========================================");
+        Map<Integer,String> hashMap = new HashMap<Integer, String>();
+        hashMap.put(1,"Java");
+        hashMap.put(2,"Python");
+        hashMap.put(3,"Go-Lang");
+        hashMap.put(4,"Kotlin");
+        System.out.println("Gets Index from : "+hashMap.get(2));
+        System.out.println(hashMap.isEmpty());
+        System.out.println(hashMap.containsKey(4));
+        System.out.println(hashMap.getOrDefault(10,"c++"));
     }
 }
