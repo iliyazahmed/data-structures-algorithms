@@ -1,8 +1,6 @@
 package com.tns.ListInterface;
 
-import java.lang.ref.PhantomReference;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
 import java.util.stream.Collectors;
@@ -12,15 +10,15 @@ public class ArrayListRemoval {
 
     private static List<String> arrayList1;
 
-    private static void usingStreamAPI(String countryName){
-        //using stream api's
-        List<String> filteredList = arrayList.stream()
-                .filter(country->!arrayList.equals(countryName))
+    private static void usingStreamAPIRemove(String countryName){
+        //using stream Api
+        List<String> filteredList = arrayList1.stream()
+                .filter(name -> !name.equalsIgnoreCase(countryName))
                 .collect(Collectors.toList());
         filteredList.forEach(System.out::println);
     }
 
-    private static void usingListIterator(String countryName){
+    private static void usingListIteratorRemove(String countryName){
         //using list iterator
         ListIterator<String> listIterator = arrayList.listIterator();
         while (listIterator.hasNext()){
@@ -31,7 +29,7 @@ public class ArrayListRemoval {
         arrayList.forEach(System.out::println);
     }
     public static void main(String[] args) {
-        arrayList = new ArrayList<String>();
+        arrayList = new ArrayList<>();
         arrayList.add("India");
         arrayList.add("Australia");
         arrayList.add("South Africa");
@@ -42,9 +40,13 @@ public class ArrayListRemoval {
                         "Newzland",
                         "Europe",
                         "Ireland"));
-        usingListIterator("England");
-        
-        //usingStreamAPI("South Africa");
+        System.out.println(arrayList1);
+        System.out.println(arrayList);
+        System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@");
+        usingListIteratorRemove("England");
+        System.out.println("---------------------------");
+        usingStreamAPIRemove("ireland");
+
 
 
 
