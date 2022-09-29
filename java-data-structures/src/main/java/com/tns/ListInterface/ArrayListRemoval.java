@@ -13,19 +13,13 @@ public class ArrayListRemoval {
     private static void usingStreamAPIRemove(String countryName){
         //using stream Api
         List<String> filteredList = arrayList1.stream()
-                .filter(name -> !name.equalsIgnoreCase(countryName))
-                .collect(Collectors.toList());
+                .filter(name -> !name.equalsIgnoreCase(countryName)).toList();
         filteredList.forEach(System.out::println);
     }
 
     private static void usingListIteratorRemove(String countryName){
         //using list iterator
-        ListIterator<String> listIterator = arrayList.listIterator();
-        while (listIterator.hasNext()){
-            if(listIterator.next().equalsIgnoreCase(countryName)){
-                listIterator.remove();
-            }
-        }
+        arrayList.removeIf(s -> s.equalsIgnoreCase(countryName));
         arrayList.forEach(System.out::println);
     }
     public static void main(String[] args) {
@@ -34,16 +28,19 @@ public class ArrayListRemoval {
         arrayList.add("Australia");
         arrayList.add("South Africa");
         arrayList.add("England");
+        arrayList.add("China");
 
         arrayList1 = new ArrayList<>(
                 List.of("WestIndies",
                         "Newzland",
                         "Europe",
                         "Ireland"));
-        System.out.println(arrayList1);
-        System.out.println(arrayList);
-        System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@");
+        System.out.println("This is List of Array Two : "+arrayList1);
+        System.out.println("This is List of Array One "+arrayList);
         usingListIteratorRemove("England");
+        usingListIteratorRemove("China");
+
+        System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@");
         System.out.println("---------------------------");
         usingStreamAPIRemove("ireland");
 
