@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Train {
     private String trainName;
-    private double price;
+    private Double price;
     private String source;
     private String destination;
 }
